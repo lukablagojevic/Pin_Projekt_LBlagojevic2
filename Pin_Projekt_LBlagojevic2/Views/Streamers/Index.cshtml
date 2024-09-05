@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Streamer>
+
+<h2>Partners</h2>
+
+<p>
+    <a href="@Url.Action("Create")">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ChannelUrl</th>
+            <th>Description</th>
+            <th>Edit|Delete</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a href="@item.ChannelUrl" target="_blank">@item.ChannelUrl</a>
+                </td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.StreamerId })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = item.StreamerId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

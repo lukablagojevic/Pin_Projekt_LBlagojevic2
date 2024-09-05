@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Viewer>
+
+<h2>Viewers</h2>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Viewer</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subscriber</th>
+            <th>Follower</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@(item.Subscriber ? "Yes" : "No")</td>
+                <td>@(item.Follower ? "Yes" : "No")</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ViewerId })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = item.ViewerId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

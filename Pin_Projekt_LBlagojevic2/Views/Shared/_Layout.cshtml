@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Pin_Projekt_LBlagojevic</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/Microsoft.VisualStudio.Web.CodeGeneration.Design/wwwroot/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" />
+    </environment>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color:lightblue;
+        }
+
+        main {
+            flex: 1; 
+        }
+
+        footer {
+            background-color: #f8f9fa; 
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .left-corner-image {
+            position: fixed;
+            top: 200px;
+            left: -10px;
+            margin: 10px; 
+            width: 200px;
+            height: 250px;
+        }
+
+        .nav-link {
+            font-size: 35px; 
+        }
+        .navbar-brand{
+            font-size:45px;
+        }
+
+        .float-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gwen_0.jpg" alt="Gwen" class="left-corner-image">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Arthapsic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Streamers" asp-action="Index">Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Viewer" asp-action="Index">Viewers</a>
+                    </li>
+                    <li class="nav-item float-right">
+                        <partial name="_LoginPartial.cshtml" />
+                        </li>
+                </ul>
+                
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - Pin_Projekt_LBlagojevic</p>
+        </div>
+    </footer>
+   
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
