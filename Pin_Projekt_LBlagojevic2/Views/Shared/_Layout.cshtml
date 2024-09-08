@@ -19,6 +19,12 @@
             height: 100%;
         }
 
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -30,7 +36,7 @@
         }
 
         footer {
-            background-color: #f8f9fa; 
+            background-color: lightblue; 
             padding: 10px 0;
             text-align: center;
         }
@@ -45,10 +51,14 @@
         }
 
         .nav-link {
-            font-size: 35px; 
+            font-size: 35px;
+            font-family: 'Luckiest Guy';
+            color:darkgreen !important;
         }
         .navbar-brand{
+            font-family: 'Luckiest Guy';
             font-size:45px;
+            color : darkblue !important;
         }
 
         .float-right {
@@ -62,10 +72,12 @@
     </style>
 </head>
 <body>
-    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gwen_0.jpg" alt="Gwen" class="left-corner-image">
+    @*<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gwen_0.jpg" alt="Gwen" class="left-corner-image">*@
     <header>
+        
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Arthapsic</a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -85,6 +97,7 @@
             </div>
         </nav>
     </header>
+    <img src="https://yt3.googleusercontent.com/9QPk8d5I6WImqHFEkDz_pfZRNbgIYLjiBkIm07zvk8nCBjfdOnALbAGR_ByS0EHiSbzMRQaduQ=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="ARTHAPSIC Logo" class="center-image" style="width:50%;">
     <main role="main" class="container">
         @RenderBody()
     </main>
