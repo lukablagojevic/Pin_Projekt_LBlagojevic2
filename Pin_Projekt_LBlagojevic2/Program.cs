@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pin_Projekt_LBlagojevic2.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 
 
@@ -20,16 +21,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-});
+services.AddAuthentication()
+    .AddGoogle(googleOptions =>
+    {
+        googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+        googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    })
+    .AddTwitch(twitchOptions =>
+     {
+         twitchOptions.ClientId = configuration["Authentication:Twitch:ClientId"];
+         twitchOptions.ClientSecret = configuration["Authentication:Twitch:ClientSecret"];
+     });
 
 
 
 
-
+builder.Services.AddHttpClient<TwitchService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 

@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Pin_Projekt_LBlagojevic2.Models;
 
 namespace Pin_Projekt_LBlagojevic2.Controllers
@@ -7,14 +9,21 @@ namespace Pin_Projekt_LBlagojevic2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly TwitchService _twitchService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, TwitchService twitchService)
         {
             _logger = logger;
+            _twitchService = twitchService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var isLive = await _twitchService.IsStreamLiveAsync("arthapsic");
+
+            
+            ViewData["IsTwitchLive"] = isLive;
+
             return View();
         }
 
@@ -28,7 +37,5 @@ namespace Pin_Projekt_LBlagojevic2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
     }
-
 }
