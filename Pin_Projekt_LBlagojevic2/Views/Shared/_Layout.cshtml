@@ -66,6 +66,15 @@
             right: 0;
             top: 0;
         }
+        .youtube{
+            color: #FF0000!important;
+            text-align: center;
+            
+        }
+        .twitch{
+            color: #9146FF!important;
+            text-align: center!important;
+        }
 
 
         
@@ -92,12 +101,23 @@
                     <li class="nav-item float-right">
                         <partial name="_LoginPartial.cshtml" />
                         </li>
+                    <li class="nav-item">
+                        <a class="nav-link twitch" asp-controller="Twitch" asp-action="Index">Twitch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link youtube" asp-controller="Youtube" asp-action="Index">Youtube</a>
+                    </li>
                 </ul>
                 
             </div>
         </nav>
     </header>
-    <img src="https://yt3.googleusercontent.com/9QPk8d5I6WImqHFEkDz_pfZRNbgIYLjiBkIm07zvk8nCBjfdOnALbAGR_ByS0EHiSbzMRQaduQ=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="ARTHAPSIC Logo" class="center-image" style="width:50%;">
+    <a href="https://twitch.tv/arthapsic" target="_blank">
+        <img src="https://yt3.googleusercontent.com/9QPk8d5I6WImqHFEkDz_pfZRNbgIYLjiBkIm07zvk8nCBjfdOnALbAGR_ByS0EHiSbzMRQaduQ=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+             alt="ARTHAPSIC Logo" class="center-image"
+             style="width:50%;">
+    </a>
+
     <main role="main" class="container">
         @RenderBody()
     </main>
