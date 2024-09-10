@@ -14,3 +14,6 @@ Mogućnosti aplikacije:
 Autentifikacija korisnika
 CRUD operacije za streamere
 Navigacija kroz aplikaciju
+Log in pomocu Google I Twitch
+Embed Twitch na svojoj stranici koja pokazuje kada je live
+Embed youtube na svojoj stranici

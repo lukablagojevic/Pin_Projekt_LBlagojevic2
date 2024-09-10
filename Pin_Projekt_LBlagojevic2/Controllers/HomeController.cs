@@ -1,7 +1,5 @@
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Pin_Projekt_LBlagojevic2.Models;
 
 namespace Pin_Projekt_LBlagojevic2.Controllers
@@ -21,7 +19,7 @@ namespace Pin_Projekt_LBlagojevic2.Controllers
         {
             var isLive = await _twitchService.IsStreamLiveAsync("arthapsic");
 
-            
+
             ViewData["IsTwitchLive"] = isLive;
 
             return View();

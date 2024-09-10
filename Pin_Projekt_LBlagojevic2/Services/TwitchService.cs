@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 public class TwitchService
 {
@@ -15,7 +13,7 @@ public class TwitchService
 
     public async Task<bool> IsStreamLiveAsync(string userName)
     {
-        
+
         var tokenResponse = await _httpClient.PostAsync(
             "https://id.twitch.tv/oauth2/token?client_id=" + _clientId +
             "&client_secret=" + _clientSecret +
@@ -29,7 +27,7 @@ public class TwitchService
         _httpClient.DefaultRequestHeaders.Add("Client-ID", _clientId);
         _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-       
+
         var streamResponse = await _httpClient.GetAsync($"https://api.twitch.tv/helix/streams?user_login={userName}");
         var streamResponseBody = await streamResponse.Content.ReadAsStringAsync();
         var streams = JObject.Parse(streamResponseBody)["data"] as JArray;

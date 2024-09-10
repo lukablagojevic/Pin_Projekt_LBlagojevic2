@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pin_Projekt_LBlagojevic2.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 
 
@@ -53,7 +51,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

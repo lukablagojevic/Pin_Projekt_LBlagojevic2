@@ -65,7 +65,7 @@ namespace Pin_Projekt_LBlagojevic2.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // Login using the username and password
+                
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
@@ -88,7 +88,7 @@ namespace Pin_Projekt_LBlagojevic2.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            
             return Page();
         }
     }
